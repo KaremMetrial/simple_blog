@@ -29,7 +29,7 @@
                 <th scope="row">{{$post->id}}</th>
                 <td>{{$post->title}}</td>
                 <td>{{$post->description}}</td>
-                <td>{{$post->posted_by}}</td>
+                <td>{{$post->user->name}}</td>
                 <td>{{$post->created_at}}</td>
                 <td>
                     <a href="{{route('post.show',$post->id)}}" class="btn btn-info">View</a>

@@ -7,11 +7,11 @@
         @csrf
         <div class="mb-3">
             <label for="Title" class="form-label">Title</label>
-            <input type="text" name="title" class="form-control" id="Title">
+            <input type="text" name="title" class="form-control" id="Title" required>
         </div>
         <div class="mb-3">
             <label for="descritpion" class="form-label">Description</label>
-            <textarea class="form-control" name="description" id="descritpion" style="height: 100px"></textarea>
+            <textarea class="form-control" name="description" id="descritpion" style="height: 100px" required></textarea>
         </div>
         <div class="mb-3">
             <label class="from-label">Post Creator</label>

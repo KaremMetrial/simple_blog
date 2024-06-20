@@ -17,9 +17,9 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">
-                Name : {{$post['posted_by']}}
+                Name : {{$post->user->name}}
             </h5>
-            <p class="card-text">Email : </p>
+            <p class="card-text">Email : {{$post->user->email}} </p>
             <p class="card-text">Created at : {{$post['created_at']}}</p>
         </div>
     </div>

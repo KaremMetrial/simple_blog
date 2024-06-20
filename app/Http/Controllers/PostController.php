@@ -34,12 +34,19 @@ class PostController extends Controller
 
     public function store()
     {
+        request()->validate([
+           'title' => 'required',
+           'description' => 'required',
+        ]);
+
         $title =  request()->input('title');
         $description = request()->input('description');
         $createdBy =  request()->input('post_creator');
+
         $post = new Post();
         $post->title = $title;
         $post->description = $description;
+        $post->user_id = $createdBy;
         $post->save();
         return redirect(route('home'));
     }
@@ -53,18 +60,17 @@ class PostController extends Controller
 
     public function update($id)
     {
+        $title = request()->title;
+        $description = request()->description;
+        $postCreator = request()->post_creator;
+
         $post = Post::find($id);
-        $data = request()->all();
-        $title = $data['title'];
-        $description = $data['description'];
-        $postCreator = $data['post_creator'];
         $post->update([
             'title' => $title,
             'description' => $description,
-            'post_creator' => $postCreator
+            'user_id' => $postCreator,
         ]);
         return redirect(route('post.show', $post->id));
-
     }
 
     public function destroy($id)
